@@ -1,0 +1,35 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+_public_hdrs = [
+    "include/boost/*.hpp",
+    "include/boost/math/*.hpp",
+    "include/boost/math/bindings/*.hpp",
+    "include/boost/math/complex/*.hpp",
+    "include/boost/math/concepts/*.hpp",
+    "include/boost/math/constants/*.hpp",
+    "include/boost/math/cstdfloat/*.hpp",
+    "include/boost/math/differentiation/*.hpp",
+    "include/boost/math/filters/*.hpp",
+    "include/boost/math/interpolators/*.hpp",
+    "include/boost/math/policies/*.hpp",
+    "include/boost/math/quadrature/*.hpp",
+    "include/boost/math/special_functions/*.hpp",
+    "include/boost/math/statistics/*.hpp",
+    "include/boost/math/tools/*.hpp",
+]
+
+cc_library(
+    name = "math_internal",
+    hdrs = glob(["include/boost/**/*.hpp"], exclude = _public_hdrs),
+)
+
+cc_library(
+    name = "math",
+    visibility = ["//visibility:public"],
+    includes = ["include"],
+    hdrs = glob(_public_hdrs),
+    deps = [
+        ":math_internal",
+        "@boost//predef",
+    ],
+)

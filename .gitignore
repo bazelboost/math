@@ -7,3 +7,4 @@ inspect.html
 test/cuda
 *.DS_Store
 /**/*.dSYM/
+/bazel-*
