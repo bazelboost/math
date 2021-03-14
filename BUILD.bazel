@@ -31,5 +31,10 @@ cc_library(
     deps = [
         ":math_internal",
         "@boost//predef",
+        "@boost//type_traits",
+        "@boost//mpl",
+        "@boost//assert",
+        "@boost//utility",
+        "@boost//throw_exception",
     ],
 )
