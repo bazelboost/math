@@ -30,11 +30,11 @@ cc_library(
     hdrs = glob(_public_hdrs),
     deps = [
         ":math_internal",
-        "@boost//predef",
-        "@boost//type_traits",
-        "@boost//mpl",
-        "@boost//assert",
-        "@boost//utility",
-        "@boost//throw_exception",
+        "@boost//libs/predef",
+        "@boost//libs/type_traits",
+        "@boost//libs/mpl",
+        "@boost//libs/assert",
+        "@boost//libs/utility",
+        "@boost//libs/throw_exception",
     ],
 )
